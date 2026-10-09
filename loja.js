@@ -273,3 +273,31 @@ function formatarNome(texto){
 
 console.log("--- Tarefa 9: Padronizar nomes ---");
 console.log(formatarNome("   FiFa 23  "));
+
+/*
+Tarefa 10 — Salvar e recuperar em JSON
+function converterParaJSON(lista) e function lerJSON(texto)
+converterParaJSON deve retornar o array convertido em texto JSON. lerJSON deve retornar o array de volta, a partir do texto JSON.
+Conceitos envolvidos: JSON.stringify, JSON.parse, typeof.
+Pense antes de codificar:
+Qual método transforma objetos em texto? E qual faz o caminho inverso?
+Como provar que o resultado da conversão é mesmo um texto?
+Como testar: converta os produtos, exiba o tipo do resultado, recupere o array e exiba quantos itens voltaram e o nome do primeiro.
+Saída esperada:
+string
+Itens recuperados: 7 | Primeiro: Caderno
+*/
+
+function converterParaJSON(lista) {
+    return JSON.stringify(lista);
+}
+
+function lerJSON(texto) {
+    return JSON.parse(texto);
+}
+
+console.log("--- Tarefa 10: JSON ---");
+const produtosJSON = converterParaJSON(produtos);
+console.log(typeof produtosJSON);
+const produtosRecuperados = lerJSON(produtosJSON);
+console.log(`Itens recuperados: ${produtosRecuperados.length} | Primeiro: ${produtosRecuperados[0].nome}`);
