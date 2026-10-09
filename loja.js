@@ -70,3 +70,26 @@ function listarProdutos(lista) {
 
 console.log("--- Tarefa 2: Listar ---");
 listarProdutos(produtos);
+
+/* 
+Tarefa 3 — Cadastrar um produto
+function cadastrarProduto(lista, nome, categoria, preco, quantidade)
+Crie um novo produto com os 4 dados recebidos e com vendidos igual a 0 (um produto novo ainda não foi vendido). Adicione-o ao final do array e retorne a nova quantidade de produtos da lista.
+Conceitos envolvidos: objeto, parâmetros, método de array para adicionar elementos, return.
+*/
+
+function cadastrarProduto(lista, nome, categoria, preco, quantidade) {
+    const novoProduto = {
+        nome: nome,
+        categoria: categoria,
+        preco: preco,
+        quantidade: quantidade,
+        vendidos: 0
+    };
+    lista.push(novoProduto);
+    let qtdeProdutos = lista.length;
+    return `Produto cadastrado! Agora a loja tem ${qtdeProdutos} produtos.`
+} 
+
+console.log("--- Tarefa 3: cadastrar ---");
+console.log(cadastrarProduto(produtos, "God of War", "Ação", 250.00, 3));
