@@ -93,3 +93,28 @@ function cadastrarProduto(lista, nome, categoria, preco, quantidade) {
 
 console.log("--- Tarefa 3: cadastrar ---");
 console.log(cadastrarProduto(produtos, "God of War", "Ação", 250.00, 3));
+
+/*
+Tarefa 4 — Valor do estoque
+function calcularValorEstoque(lista)
+Retorne o valor total do estoque: a soma de preço × quantidade de todos os produtos. Exemplo: o Caderno vale 25 × 12 = 300 e a Caneta azul vale 3 × 50 = 150; o resultado é a soma dos valores de todos os produtos.
+Conceitos envolvidos: variável acumuladora, laço de repetição, operadores aritméticos, return.
+Pense antes de codificar:
+Onde a soma deve começar e com qual valor inicial? Pelo valor do primeiro objeto da lista
+O que precisa acontecer com a soma a cada produto percorrido?
+Em que momento o resultado deve ser retornado: dentro ou depois do laço?
+Como testar: exiba Valor do estoque: R$ ... com o valor retornado pela função.
+*/
+
+function calcularValorEstoque(lista){
+    let somaTotal = 0;
+    let qtdeProdutos = lista.length;
+    for(let i = 0; i < qtdeProdutos; i++){
+        let somaParcial = lista[i].quantidade * lista[i].preco;
+        somaTotal += somaParcial;
+    }
+    return `Valor do estoque: R$ ${somaTotal.toFixed(2)}`
+}
+
+console.log("--- Tarefa 4: valor do estoque ---");
+console.log(calcularValorEstoque(produtos));
