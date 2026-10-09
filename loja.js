@@ -149,3 +149,30 @@ function buscarProduto(lista, termo) {
 console.log("--- Tarefa 5: buscar ---");
 console.log(buscarProduto(produtos, "fifa 23"));
 console.log(buscarProduto(produtos, "fortnite"));
+
+/*
+Tarefa 6 — Produtos em falta
+function produtosEmFalta(lista, minimo)
+Retorne um novo array apenas com os produtos cuja quantidade é menor que minimo. O array original não deve ser alterado.
+Conceitos envolvidos: array vazio, laço de repetição, if, adicionar elementos, return.
+Pense antes de codificar:
+Onde os produtos selecionados serão guardados?
+Qual condição decide se um produto entra ou não no novo array?
+Como testar: chame a função com mínimo 5 e exiba quantos produtos foram retornados.
+Saída esperada:
+Produtos com menos de 5 unidades: 3
+*/
+
+function produtosEmFalta(lista, minimo) {
+    let produtosFaltando = [];
+    let qtdeProdutos = lista.length;
+    for(let i = 0; i < qtdeProdutos; i++){
+        if(lista[i].quantidade < minimo){
+            produtosFaltando.push(lista[i]);
+        }
+    }
+    return produtosFaltando;
+}
+
+console.log("--- Tarefa 6: produtos em falta ---");
+console.log(`Produtos com menos de 5 unidades: ${produtosEmFalta(produtos, 5).length}`);
