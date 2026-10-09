@@ -118,3 +118,34 @@ function calcularValorEstoque(lista){
 
 console.log("--- Tarefa 4: valor do estoque ---");
 console.log(calcularValorEstoque(produtos));
+
+/*
+Tarefa 5 — Buscar um produto
+function buscarProduto(lista, termo)
+Procure o primeiro produto cujo nome contém o termo pesquisado, sem diferenciar maiúsculas de minúsculas (buscar "MOCHILA" deve encontrar "Mochila"). Retorne o produto encontrado ou null se nenhum produto corresponder.
+Conceitos envolvidos: laço de repetição, if, métodos de string (minúsculas e “contém”), return, null.
+Pense antes de codificar:
+Como comparar dois textos ignorando maiúsculas e minúsculas?passando os dois pro mesmo “tamanho”, tudo maiusc ou tudo minusc
+Qual método verifica se um texto contém outro?include
+Se a função encontrar o produto, ela precisa continuar procurando?não
+Onde deve ficar o retorno de null para que só aconteça quando nada for encontrado?
+Como testar: busque um produto que existe (escrito em maiúsculas) e exiba seu nome e preço. Depois busque um produto que não existe e, quando o resultado for null, exiba Produto não encontrado.
+Saída esperada:
+Encontrado: Mochila - R$ 120
+Produto não encontrado.
+*/
+
+function buscarProduto(lista, termo) {
+    let qtdeProdutos = lista.length;
+    termo = termo.toLowerCase();
+    for(let i = 0; i < qtdeProdutos; i++){
+        if(lista[i].nome.toLowerCase().includes(termo)){
+            return `Encontrado: ${lista[i].nome} - R$ ${lista[i].preco.toFixed(2)}`;
+        }
+    }
+    return "Produto não encontrado.";
+}
+
+console.log("--- Tarefa 5: buscar ---");
+console.log(buscarProduto(produtos, "fifa 23"));
+console.log(buscarProduto(produtos, "fortnite"));
