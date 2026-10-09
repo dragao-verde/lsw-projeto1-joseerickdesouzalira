@@ -9,3 +9,5 @@ Funcionalidades:
 função: listarProdutos -- mostra a lista de produtos de forma enumerada a partir de 1 e com todas as características;
 
 função: cadastrarProduto -- cria um novo produto e adiciona ele na lista com todas as características definidas pelos parâmetros, mas com numero de vendidos igual a zero;
+
+função: 
