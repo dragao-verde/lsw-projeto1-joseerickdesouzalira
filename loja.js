@@ -176,3 +176,34 @@ function produtosEmFalta(lista, minimo) {
 
 console.log("--- Tarefa 6: produtos em falta ---");
 console.log(`Produtos com menos de 5 unidades: ${produtosEmFalta(produtos, 5).length}`);
+
+/*
+Tarefa 7 — Aplicar desconto
+function aplicarDesconto(lista, categoria, percentual)
+Para cada produto da categoria informada, altere o preço aplicando o desconto. Retorne quantos produtos foram alterados. Fórmula: novo preço = preço - (preço × percentual ÷ 100). Exemplo: 10% de desconto em R$ 3 resulta em R$ 2.7.
+Conceitos envolvidos: laço de repetição, if, alteração de propriedade de objeto, contador, return.
+Pense antes de codificar:
+Como identificar se um produto pertence à categoria recebida?
+Como alterar o valor de uma propriedade de um objeto que já existe?
+Como contar quantos produtos foram alterados?
+Como testar: aplique 10% de desconto em uma categoria, exiba quantos produtos foram alterados e o novo preço de um deles.
+Saída esperada:
+3 produtos receberam desconto.
+Novo preço da caneta: R$ 2.7
+*/
+
+function aplicarDesconto(lista, categoria, percentual) {
+    let qtdeProdutosAlterados = 0;
+    let qtdeProdutos = lista.length;
+    for(let i = 0; i < qtdeProdutos; i++){
+        if(lista[i].categoria.toLowerCase() === categoria.toLowerCase()){
+            lista[i].preco = lista[i].preco - (lista[i].preco * percentual / 100);
+            qtdeProdutosAlterados++;
+        }
+    }
+    return `${qtdeProdutosAlterados} produtos receberam desconto.`;
+}
+
+console.log("--- Tarefa 7: aplicar desconto ---");
+console.log(aplicarDesconto(produtos, "Esportes", 10));
+console.log(`Novo preço do FIFA 23: R$ ${produtos[3].preco.toFixed(2)}`);
