@@ -301,3 +301,40 @@ const produtosJSON = converterParaJSON(produtos);
 console.log(typeof produtosJSON);
 const produtosRecuperados = lerJSON(produtosJSON);
 console.log(`Itens recuperados: ${produtosRecuperados.length} | Primeiro: ${produtosRecuperados[0].nome}`);
+
+/*
+Tarefa 11 — Relatório final
+function gerarRelatorio(nome, lista)
+Exiba um relatório da loja, no formato da saída abaixo, com:
+o nome da loja em maiúsculas;
+a quantidade de produtos cadastrados;
+o valor total do estoque, usando a função da Tarefa 4;
+a quantidade e a lista dos produtos com menos de 5 unidades, usando a função da Tarefa 6.
+Conceitos envolvidos: reutilização de funções, template literal, laço de repetição.
+Pense antes de codificar:
+Quais funções que você já criou resolvem parte deste relatório?
+Como chamar uma função dentro de outra e usar o valor que ela retorna?
+Como testar: chame a função passando nomeLoja e produtos.
+Saída esperada:
+===== RELATÓRIO: PAPELARIA EXEMPLO =====
+Produtos cadastrados: 7
+Valor total em estoque: R$ 738.6
+Produtos com estoque baixo: 3
+- Lápis (2 un.)
+- Mochila (1 un.)
+- Caderno de desenho (4 un.)
+ */
+
+function gerarRelatorio(nome, lista) {
+    const produtosBaixoEstoque = produtosEmFalta(lista, 5);
+    console.log(`===== RELATÓRIO: ${nome.toUpperCase()} =====`);
+    console.log(`Produtos cadastrados: ${lista.length}`);
+    console.log(calcularValorEstoque(lista));
+    console.log(`Produtos com estoque baixo: ${produtosBaixoEstoque.length}`);
+    for (let i = 0; i < produtosBaixoEstoque.length; i++) {
+        console.log(`- ${produtosBaixoEstoque[i].nome} (${produtosBaixoEstoque[i].quantidade} un.)`);
+    }
+}  
+
+console.log("--- Tarefa 11: relatório ---");
+gerarRelatorio(nomeLoja, produtos);
