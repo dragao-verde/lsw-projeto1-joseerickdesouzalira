@@ -207,3 +207,45 @@ function aplicarDesconto(lista, categoria, percentual) {
 console.log("--- Tarefa 7: aplicar desconto ---");
 console.log(aplicarDesconto(produtos, "Esportes", 10));
 console.log(`Novo preço do FIFA 23: R$ ${produtos[3].preco.toFixed(2)}`);
+
+/* 
+Tarefa 8 — Registrar uma venda
+function registrarVenda(lista, nome, quantidade)
+Registre a venda de uma quantidade de um produto, usando a função da Tarefa 5 para encontrá-lo pelo nome. A venda não acontece se o produto não existir ou se não houver unidades suficientes em estoque; nesse caso, a função retorna false. Se a venda for possível, diminua a quantidade em estoque, aumente os vendidos e retorne true.
+Conceitos envolvidos: reutilização de funções, if, operadores lógicos, alteração de propriedades, valores booleanos, return.
+Pense antes de codificar:
+Qual função que você já criou encontra um produto pelo nome?
+Quais são as duas situações que impedem a venda? Como verificar as duas em uma única condição?
+Quais duas propriedades mudam quando uma venda acontece? Uma aumenta e outra diminui: qual é qual?
+Como testar: venda 3 unidades de um produto com estoque suficiente e, se o retorno for true, exiba o nome, a nova quantidade em estoque e o total de vendidos. Depois tente vender mais unidades do que existem e, se o retorno for false, exiba Venda não realizada: estoque insuficiente ou produto inexistente.
+Saída esperada:
+Venda realizada! Caderno: 9 un. em estoque, 6 vendidos.
+Venda não realizada: estoque insuficiente ou produto inexistente.
+*/
+
+function registrarVenda(lista, nome, quantidade) {
+    const produtoEncontrado = lista.find((produto) => produto.nome.toLowerCase() === nome.toLowerCase());
+    const produtoExiste = buscarProduto(lista, nome) !== "Produto não encontrado.";
+
+    if (!produtoExiste || !produtoEncontrado || quantidade <= 0 || produtoEncontrado.quantidade < quantidade) {
+        return false;
+    }
+
+    produtoEncontrado.quantidade -= quantidade;
+    produtoEncontrado.vendidos += quantidade;
+    return true;
+}
+
+console.log("--- Tarefa 8: registrar venda ---");
+const vendaValida = registrarVenda(produtos, "Minecraft", 3);
+if (vendaValida) {
+    const produtoVendido = produtos.find((produto) => produto.nome.toLowerCase() === "minecraft");
+    console.log(`Venda realizada! ${produtoVendido.nome}: ${produtoVendido.quantidade} un. em estoque, ${produtoVendido.vendidos} vendidos.`);
+} else {
+    console.log("Venda não realizada: estoque insuficiente ou produto inexistente.");
+}
+
+const vendaInvalida = registrarVenda(produtos, "Fifa 23", 999);
+if (!vendaInvalida) {
+    console.log("Venda não realizada: estoque insuficiente ou produto inexistente.");
+}
