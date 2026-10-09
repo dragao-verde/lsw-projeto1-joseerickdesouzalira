@@ -52,3 +52,21 @@ const produtos = [{
     vendidos: 25,
 }
 ];
+
+/* 
+Tarefa 2 — Listar os produtos
+function listarProdutos(lista)
+Exiba cada produto do array em uma linha, numerada a partir de 1, no formato: número. nome | categoria | R$ preço | quantidade un. | vendidos vendidos
+Conceitos envolvidos: laço de repetição, índice do array, length, acesso a propriedades, template literal.
+*/
+
+function listarProdutos(lista) {
+    let quantidadeProdutos = lista.length;
+    for (let i = 0; i < quantidadeProdutos; i++) {
+        const produto = lista[i];
+        console.log(`${i + 1}. ${produto.nome} | ${produto.categoria} | R$ ${produto.preco.toFixed(2)} | ${produto.quantidade} un. | ${produto.vendidos} vendidos`);
+    }
+}
+
+console.log("--- Tarefa 2: Listar ---");
+listarProdutos(produtos);
