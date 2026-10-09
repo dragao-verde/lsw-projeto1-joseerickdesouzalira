@@ -249,3 +249,27 @@ const vendaInvalida = registrarVenda(produtos, "Fifa 23", 999);
 if (!vendaInvalida) {
     console.log("Venda não realizada: estoque insuficiente ou produto inexistente.");
 }
+
+/*
+Tarefa 9 — Padronizar nomes
+function formatarNome(texto)
+Retorne o texto sem espaços nas pontas, com a primeira letra maiúscula e o restante em minúsculas. Depois, altere a função da Tarefa 3 para que todo produto cadastrado tenha o nome salvo já formatado.
+Conceitos envolvidos: métodos de string (remover espaços, pegar um caractere, recortar, maiúsculas e minúsculas), concatenação.
+Pense antes de codificar:
+O texto deve ser limpo antes ou depois de separar a primeira letra?
+Como pegar só a primeira letra? E todo o texto a partir da segunda?
+Como juntar as duas partes em um único texto?
+Como testar: exiba o resultado da função para o texto "   bORRACHA branca  ".
+Saída esperada:
+Borracha branca
+*/
+
+function formatarNome(texto){
+    let textoFormatado = texto.trim();
+    let primeiraLetra = textoFormatado.charAt(0).toUpperCase();
+    let restoDoTexto = textoFormatado.slice(1).toLowerCase();
+    return primeiraLetra + restoDoTexto;
+}
+
+console.log("--- Tarefa 9: Padronizar nomes ---");
+console.log(formatarNome("   FiFa 23  "));
